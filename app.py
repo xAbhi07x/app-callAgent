@@ -96,13 +96,13 @@ def voice_ai():
     # Create TwiML response with WebSocket stream
     response = VoiceResponse()
     
-    # WebSocket URL - must point to port 5001 where websocket_server.py runs
-    # Get the public ngrok URL and modify for WebSocket
-    host = request.host.split(':')[0]  # Get just the hostname
+    # WebSocket URL from environment variable
+    # You must run ngrok on port 5001 and set this in .env
+    ws_url = os.getenv('WEBSOCKET_URL', 'wss://localhost:5001')
     
-    # For ngrok: use the same hostname but point to WebSocket port
-    # Note: You'll need to expose port 5001 via ngrok too
-    ws_url = f"wss://{host}/ws"
+    if 'your-ngrok-url' in ws_url:
+        print("⚠️  WARNING: WEBSOCKET_URL not configured in .env!")
+        print("   Run 'ngrok http 5001' and update WEBSOCKET_URL in .env")
     
     # Connect call to WebSocket stream
     connect = response.connect()
