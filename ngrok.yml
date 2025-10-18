@@ -1,0 +1,15 @@
+# ngrok Configuration File
+# This allows you to tunnel BOTH ports with one command
+
+authtoken: YOUR_NGROK_AUTHTOKEN_HERE
+
+tunnels:
+  flask:
+    addr: 5000
+    proto: http
+    inspect: true
+  
+  websocket:
+    addr: 5001
+    proto: http
+    inspect: true

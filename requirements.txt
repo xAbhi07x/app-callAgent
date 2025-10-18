@@ -1,0 +1,5 @@
+flask==3.0.0
+twilio==8.10.0
+pyngrok==7.0.1
+python-dotenv==1.0.0
+websockets==12.0
